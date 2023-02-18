@@ -1,0 +1,132 @@
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#header {
+	padding-left: 20%;
+	background-color: teal;
+}
+
+#menu {
+	float: left;
+	width: 20%;
+}
+
+#content {
+	float: left;
+	width: 40%;
+	margin: 20px;
+}
+
+
+#sidebar {
+	float: right;
+	width: 30%;
+}
+
+
+@media screen and (max-width: 600px) {
+    #menu, #content, #sidebar {
+        width: 100%;
+    }
+}
+
+#sidebar th {
+	background-color: teal;
+	color: white;
+}
+
+#sidebar td {
+	vertical-align: top;
+}
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.error {
+	color: red;
+}
+
+#dateformat {
+	display: table;
+	width: 100%;
+}
+
+#dateformat div {
+	display: table-row;
+	width: 100%;
+}
+
+#dateformat label {
+    display: table-cell;
+}
+
+#dateformat input {
+    display: table-cell;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#hashgenerator textarea {
+	resize: vertical;
+	width: 100%;
+}
+
+.resultPanel {
+	background-color: #E3E3E3;
+	width: 100%;
+	border-style: solid;
+	border-color: black;
+	border-width: thin;
+}
+
+#result {
+	margin: 10px;
+}
+
+#javaVersion{
+	text-align: right;
+	font-size: 8px;
+}
+
+.resulttable {
+	display: table;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.resultrow {
+	display: table-row;
+}
+
+.resultname {
+	display: table-cell;
+}
+
+.resultvalue {
+	display: table-cell;
+	width: 80%;
+	margin: 1px;
+}
+
+.resultbutton {
+	display: table-cell;
+	margin: 1px;
+}
+
+
+
+h1 {
+	color: white;
+}
+
+h2 {
+	color: teal;
+}
+
+a {
+	color: teal;
+}
