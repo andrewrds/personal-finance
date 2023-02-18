@@ -11,24 +11,24 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UQ_name", columnNames = { "name" }))
 public class Provider {
-	public static final int NAME_MAX_LENGTH = 100;
+    public static final int NAME_MAX_LENGTH = 100;
 
-	public Provider() {
-	}
+    public Provider() {
+    }
 
-	public Provider(String name) {
-		this.name = name;
-	}
+    public Provider(String name) {
+        this.name = name;
+    }
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	@NotNull
-	@Column(length = NAME_MAX_LENGTH)
-	private String name;
+    @NotNull
+    @Column(length = NAME_MAX_LENGTH)
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 }

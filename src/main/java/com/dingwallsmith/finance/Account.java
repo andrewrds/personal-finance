@@ -13,15 +13,15 @@ import com.dingwallsmith.finance.provider.Provider;
 @Entity
 public class Account {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "provider_id", foreignKey = @ForeignKey(name = "FK_provider_id"))
-	private Provider provider;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "provider_id", foreignKey = @ForeignKey(name = "FK_provider_id"))
+    private Provider provider;
 
-	@NotNull
-	private String description;
+    @NotNull
+    private String description;
 }

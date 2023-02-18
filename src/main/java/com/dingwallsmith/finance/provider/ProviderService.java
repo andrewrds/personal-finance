@@ -14,26 +14,26 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProviderService {
-	@PersistenceContext
-	private final EntityManager entityManager;
+    @PersistenceContext
+    private final EntityManager entityManager;
 
-	@PersistenceContext
-	private Session session;
+    @PersistenceContext
+    private Session session;
 
-	public ProviderService(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+    public ProviderService(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
-	@Transactional
-	public void create(String name) {
-		entityManager.persist(new Provider(name));
-	}
+    @Transactional
+    public void create(String name) {
+        entityManager.persist(new Provider(name));
+    }
 
-	public List<String> list() {
-		CriteriaBuilder b = session.getCriteriaBuilder();
-		CriteriaQuery<String> query = b.createQuery(String.class);
-		Root<Provider> root = query.from(Provider.class);
-		query.select(root.get("name")).orderBy(b.asc(root.get("name")));
-		return session.createQuery(query).getResultList();
-	}
+    public List<String> list() {
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<String> query = b.createQuery(String.class);
+        Root<Provider> root = query.from(Provider.class);
+        query.select(root.get("name")).orderBy(b.asc(root.get("name")));
+        return session.createQuery(query).getResultList();
+    }
 }

@@ -5,30 +5,30 @@
 
 <html lang="en">
 <head>
-	<title>Providers</title>
-	<jsp:directive.include file="commonHeaders.jsp" />
+    <title>Providers</title>
+    <jsp:directive.include file="commonHeaders.jsp" />
 </head>
-	<body>
-		<div id="header">
-			<h1>ProviderList</h1>
-		</div>
+    <body>
+        <div id="header">
+            <h1>ProviderList</h1>
+        </div>
 
-		<table>
-			<c:forEach items="${providerList}" var="provider">
-				<tr>
-					<td><c:out value="${provider}" /></td>
-				</tr>
-			</c:forEach>
-		</table>
-		
-		<form id="createProvider" onsubmit="createProvider()" action="">
-			<div>
-        		<label for="inputName">Name</label>
-        		<input id="inputName"
-	               	maxlength="${Provider.NAME_MAX_LENGTH}"/>
-	               	
-	             <input type="submit" value="Create"/>
-    		</div>
-		</form>
-	</body>
+        <table>
+            <c:forEach items="${providerList}" var="provider">
+                <tr>
+                    <td><c:out value="${provider}" /></td>
+                </tr>
+            </c:forEach>
+        </table>
+        
+        <form id="createProvider" onsubmit="createProvider()" action="">
+            <div>
+                <label for="inputName">Name</label>
+                <input id="inputName"
+                       maxlength="${Provider.NAME_MAX_LENGTH}"/>
+                       
+                 <input type="submit" value="Create"/>
+            </div>
+        </form>
+    </body>
 </html>

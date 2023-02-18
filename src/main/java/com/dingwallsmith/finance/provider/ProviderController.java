@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ProviderController {
-	private final ProviderService providerService;
-	
-    public ProviderController(ProviderService providerService) {
-		this.providerService = providerService;
-	}
+    private final ProviderService providerService;
     
-	@GetMapping("/provider/list")
+    public ProviderController(ProviderService providerService) {
+        this.providerService = providerService;
+    }
+    
+    @GetMapping("/provider/list")
     public String list(Map<String, Object> model, HttpSession session) {
-		List<String> providerList = providerService.list();
-		model.put("providerList", providerList);
-		
+        List<String> providerList = providerService.list();
+        model.put("providerList", providerList);
+        
         return "providerList";
     }
 }

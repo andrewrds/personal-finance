@@ -18,25 +18,25 @@ import javax.validation.constraints.Null;
 @Table(uniqueConstraints = @UniqueConstraint(name = "UQ_account_date", columnNames = { "account_id", "snapshotDate" }))
 public class MonthlySnapshot {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "account_id", foreignKey = @ForeignKey(name = "FK_account_id"))
-	private Account account;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "account_id", foreignKey = @ForeignKey(name = "FK_account_id"))
+    private Account account;
 
-	@NotNull
-	private LocalDate snapshotDate;
+    @NotNull
+    private LocalDate snapshotDate;
 
-	@Null
-	private BigDecimal balance;
+    @Null
+    private BigDecimal balance;
 
-	@Null
-	private BigDecimal moneyIn;
+    @Null
+    private BigDecimal moneyIn;
 
-	@Null
-	private BigDecimal moneyOut;
+    @Null
+    private BigDecimal moneyOut;
 
 }
