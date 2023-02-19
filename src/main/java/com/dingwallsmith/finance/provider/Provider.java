@@ -13,13 +13,6 @@ import javax.validation.constraints.NotNull;
 public class Provider {
     public static final int NAME_MAX_LENGTH = 100;
 
-    public Provider() {
-    }
-
-    public Provider(String name) {
-        this.name = name;
-    }
-
     @Id
     @GeneratedValue
     private Long id;
@@ -27,6 +20,13 @@ public class Provider {
     @NotNull
     @Column(length = NAME_MAX_LENGTH)
     private String name;
+    
+    public Provider() {
+    }
+
+    public Provider(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;

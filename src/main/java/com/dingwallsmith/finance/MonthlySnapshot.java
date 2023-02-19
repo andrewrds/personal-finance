@@ -14,6 +14,8 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
+import com.dingwallsmith.finance.account.Account;
+
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(name = "UQ_account_date", columnNames = { "account_id", "snapshotDate" }))
 public class MonthlySnapshot {

@@ -5,28 +5,30 @@
 
 <html lang="en">
 <head>
-    <title>Providers</title>
+    <title>Accounts</title>
     <jsp:directive.include file="commonHeaders.jsp" />
 </head>
     <body>
         <div id="header">
-            <h1>ProviderList</h1>
+            <h1>AccountList</h1>
         </div>
 
         <table>
-            <c:forEach items="${providerList}" var="provider">
+            <c:forEach items="${accountList}" var="account">
                 <tr>
-                    <td><c:out value="${provider}" /></td>
-                    <td><a href="javascript:deleteProvider('${fn:replace(provider, "'", "\\'")}')">delete</a></td>
+                    <td><c:out value="${account}" /></td>
+                    <td><a href="javascript:deleteAccount('${fn:replace(account, "'", "\\'")}')">delete</a></td>
                 </tr>
             </c:forEach>
         </table>
         
-        <form id="createProvider" onsubmit="createProvider()" action="">
+        <form id="createAccount" onsubmit="createAccount()" action="">
             <div>
+                <input id="providerName" type="hidden" value="${providerName}" />
+            
                 <label for="inputName">Name</label>
                 <input id="inputName"
-                       maxlength="${Provider.NAME_MAX_LENGTH}"/>
+                       maxlength="${Account.NAME_MAX_LENGTH}"/>
                        
                  <input type="submit" value="Create"/>
             </div>

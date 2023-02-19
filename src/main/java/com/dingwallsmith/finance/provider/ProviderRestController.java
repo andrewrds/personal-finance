@@ -18,4 +18,10 @@ public class ProviderRestController {
         providerService.create(name);
         return "";
     }
+    
+    @PostMapping("/provider/delete")
+    public String delete(String name, HttpSession session) {
+        providerService.delete(name);
+        return "";
+    }
 }
