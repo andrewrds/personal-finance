@@ -24,7 +24,7 @@
         
         <form id="createAccount" onsubmit="createAccount()" action="">
             <div>
-                <input id="providerName" type="hidden" value="${providerName}" />
+                <input id="providerName" type="hidden" value="${fn:escapeXml(providerName)}" />
             
                 <label for="inputName">Name</label>
                 <input id="inputName"
