@@ -4,9 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaDelete;
-import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -38,12 +35,9 @@ public class AccountService {
 	}
 
 	@Transactional
-	public void delete(String name) {
-		CriteriaBuilder b = session.getCriteriaBuilder();
-		CriteriaDelete<Account> delete = b.createCriteriaDelete(Account.class);
-		Root<Account> root = delete.from(Account.class);
-		delete.where(b.equal(root.get("name"), name));
-		session.createQuery(delete).executeUpdate();
+	public void delete(String providerName, String accountName) {
+		Account account = find(providerName, accountName);
+		entityManager.remove(account);
 	}
 
 	public List<String> listForProvider(String providerName) {
@@ -54,4 +48,12 @@ public class AccountService {
 				.map(a -> a.getName())
 				.toList();
 	}
+	
+	private Account find(String providerName, String accountName) {
+		return session.createQuery("FROM Account as a WHERE a.provider.name = :providerName  AND a.name = :accountName", Account.class)
+				.setParameter("providerName", providerName)
+				.setParameter("accountName", accountName)
+				.getSingleResult();
+	}
+	
 }

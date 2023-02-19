@@ -20,8 +20,8 @@ public class AccountRestController {
     }
     
     @PostMapping("/account/delete")
-    public String delete(String name, HttpSession session) {
-    	accountService.delete(name);
+    public String delete(String providerName, String accountName, HttpSession session) {
+    	accountService.delete(providerName, accountName);
         return "";
     }
 }

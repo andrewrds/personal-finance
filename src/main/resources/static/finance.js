@@ -32,3 +32,15 @@ function createAccount() {
         }
     });
 }
+
+function deleteAccount(accountName) {
+    let providerName = jQuery('#providerName').attr('value');
+    
+    jQuery.post({
+        url: '/account/delete',
+        data: { providerName: providerName, accountName: accountName },
+        success: function(result) {
+            location.reload();
+        }
+    });
+}
