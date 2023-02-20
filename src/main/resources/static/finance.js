@@ -10,10 +10,10 @@ function createProvider() {
     });
 }
 
-function deleteProvider(providerName) {
+function deleteProvider(providerId) {
     jQuery.post({
         url: '/provider/delete',
-        data: { name: providerName },
+        data: { id: providerId },
         success: function(result) {
             location.reload();
         }
@@ -33,12 +33,12 @@ function createAccount() {
     });
 }
 
-function deleteAccount(accountName) {
-    let providerName = jQuery('#providerName').attr('value');
+function deleteAccount(accountId) {
+    let providerId = jQuery('#providerId').attr('value');
     
     jQuery.post({
         url: '/account/delete',
-        data: { providerName: providerName, accountName: accountName },
+        data: { providerId: providerId, accountId: accountId },
         success: function(result) {
             location.reload();
         }

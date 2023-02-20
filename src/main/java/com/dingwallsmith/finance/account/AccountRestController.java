@@ -14,14 +14,12 @@ public class AccountRestController {
     }
 
     @PostMapping("/account/create")
-    public String create(String providerName, String accountName, HttpSession session) {
-    	accountService.create(providerName, accountName);
-        return "";
+    public void create(long providerId, String accountName, HttpSession session) {
+    	accountService.create(providerId, accountName);
     }
     
     @PostMapping("/account/delete")
-    public String delete(String providerName, String accountName, HttpSession session) {
-    	accountService.delete(providerName, accountName);
-        return "";
+    public void delete(long providerId, long accountId, HttpSession session) {
+    	accountService.delete(providerId, accountId);
     }
 }

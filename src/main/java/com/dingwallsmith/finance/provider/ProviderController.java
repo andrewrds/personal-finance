@@ -18,7 +18,7 @@ public class ProviderController {
     
     @GetMapping("/provider/list")
     public String list(Map<String, Object> model, HttpSession session) {
-        List<String> providerList = providerService.list();
+        List<Provider> providerList = providerService.list();
         model.put("providerList", providerList);
         
         return "providerList";

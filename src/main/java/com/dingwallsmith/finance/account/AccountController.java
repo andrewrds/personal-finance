@@ -17,10 +17,10 @@ public class AccountController {
     }
     
     @GetMapping("/account/list")
-    public String list(String providerName, Map<String, Object> model, HttpSession session) {
-        List<String> accountList = accountService.listForProvider(providerName);
+    public String list(long providerId, Map<String, Object> model, HttpSession session) {
+        List<Account> accountList = accountService.listForProvider(providerId);
         model.put("accountList", accountList);
-        model.put("providerName", providerName);
+        model.put("providerId", providerId);
         
         return "accountList";
     }

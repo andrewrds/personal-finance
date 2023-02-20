@@ -16,8 +16,8 @@
         <table>
             <c:forEach items="${providerList}" var="provider">
                 <tr>
-                    <td><c:out value="${provider}" /></td>
-                    <td><a href="javascript:deleteProvider('${fn:replace(provider, "'", "\\'")}')">delete</a></td>
+                    <td><c:out value="${provider.name}" /></td>
+                    <td><a href="javascript:deleteProvider(${provider.id})">delete</a></td>
                 </tr>
             </c:forEach>
         </table>

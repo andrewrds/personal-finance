@@ -10,21 +10,21 @@
 </head>
     <body>
         <div id="header">
-            <h1>AccountList</h1>
+            <h1>Accounts</h1>
         </div>
 
         <table>
             <c:forEach items="${accountList}" var="account">
                 <tr>
-                    <td><c:out value="${account}" /></td>
-                    <td><a href="javascript:deleteAccount('${fn:replace(account, "'", "\\'")}')">delete</a></td>
+                    <td><c:out value="${account.name}" /></td>
+                    <td><a href="javascript:deleteAccount(${account.id})">delete</a></td>
                 </tr>
             </c:forEach>
         </table>
         
         <form id="createAccount" onsubmit="createAccount()" action="">
             <div>
-                <input id="providerName" type="hidden" value="${fn:escapeXml(providerName)}" />
+                <input id="providerId" type="hidden" value="${providerId}" />
             
                 <label for="inputName">Name</label>
                 <input id="inputName"

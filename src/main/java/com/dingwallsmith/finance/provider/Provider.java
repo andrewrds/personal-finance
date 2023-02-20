@@ -21,14 +21,17 @@ public class Provider {
     @Column(length = NAME_MAX_LENGTH)
     private String name;
     
-    public Provider() {
-    }
+    public Provider() {}
 
     public Provider(String name) {
         this.name = name;
     }
+    
+    public Long getId() {
+		return id;
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 }

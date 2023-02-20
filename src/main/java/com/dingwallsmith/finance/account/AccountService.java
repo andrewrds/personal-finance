@@ -29,31 +29,35 @@ public class AccountService {
 	}
 
 	@Transactional
-	public void create(String providerName, String accountName) {
-		Provider provider = providerService.find(providerName);
+	public void create(long providerId, String accountName) {
+		Provider provider = providerService.find(providerId);
 		entityManager.persist(new Account(provider, accountName));
 	}
 
 	@Transactional
-	public void delete(String providerName, String accountName) {
-		Account account = find(providerName, accountName);
+	public void delete(long providerId, long accountId) {
+		Account account = find(providerId, accountId);
 		entityManager.remove(account);
 	}
 
-	public List<String> listForProvider(String providerName) {
-		return session.createQuery("FROM Account as a WHERE a.provider.name = :providerName", Account.class)
-				.setParameter("providerName", providerName)
-				.getResultList()
-				.stream()
-				.map(a -> a.getName())
-				.toList();
+	public List<Account> listForProvider(long providerId) {
+		return session.createQuery("""
+				FROM Account as a
+				WHERE a.provider.id = :providerId
+				ORDER BY a.name""", Account.class)
+				.setParameter("providerId", providerId)
+				.getResultList();
 	}
-	
-	private Account find(String providerName, String accountName) {
-		return session.createQuery("FROM Account as a WHERE a.provider.name = :providerName  AND a.name = :accountName", Account.class)
-				.setParameter("providerName", providerName)
-				.setParameter("accountName", accountName)
+
+	private Account find(long providerId, long accountId) {
+		return session
+				.createQuery("""
+						FROM Account as a
+						WHERE a.provider.id = :providerId
+						AND a.id = :accountId""",
+						Account.class)
+				.setParameter("providerId", providerId)
+				.setParameter("accountId", accountId)
 				.getSingleResult();
 	}
-	
 }
