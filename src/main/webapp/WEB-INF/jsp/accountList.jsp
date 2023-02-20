@@ -5,12 +5,12 @@
 
 <html lang="en">
 <head>
-    <title>Accounts</title>
+    <title><c:out value="${provider.name}" />Accounts</title>
     <jsp:directive.include file="commonHeaders.jsp" />
 </head>
     <body>
         <div id="header">
-            <h1>Accounts</h1>
+            <h1><c:out value="${provider.name}" /> Accounts</h1>
         </div>
 
         <table>
@@ -24,7 +24,7 @@
         
         <form id="createAccount" onsubmit="createAccount()" action="">
             <div>
-                <input id="providerId" type="hidden" value="${providerId}" />
+                <input id="providerId" type="hidden" value="${provider.id}" />
             
                 <label for="inputName">Name</label>
                 <input id="inputName"

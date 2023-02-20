@@ -21,12 +21,12 @@ function deleteProvider(providerId) {
 }
 
 function createAccount() {
-    let providerName = jQuery('#providerName').attr('value');
+    let providerId = jQuery('#providerId').attr('value');
     let accountName = jQuery('#inputName').val();
     
     jQuery.post({
         url: '/account/create',
-        data: { providerName: providerName, accountName: accountName },
+        data: { providerId: providerId, accountName: accountName },
         success: function(result) {
             location.reload();
         }

@@ -10,7 +10,7 @@
 </head>
     <body>
         <div id="header">
-            <h1>ProviderList</h1>
+            <h1>Providers</h1>
         </div>
 
         <table>

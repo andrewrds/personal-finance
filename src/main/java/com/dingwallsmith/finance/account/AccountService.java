@@ -40,12 +40,12 @@ public class AccountService {
 		entityManager.remove(account);
 	}
 
-	public List<Account> listForProvider(long providerId) {
+	public List<Account> listForProvider(Provider provider) {
 		return session.createQuery("""
 				FROM Account as a
 				WHERE a.provider.id = :providerId
 				ORDER BY a.name""", Account.class)
-				.setParameter("providerId", providerId)
+				.setParameter("providerId", provider.getId())
 				.getResultList();
 	}
 
