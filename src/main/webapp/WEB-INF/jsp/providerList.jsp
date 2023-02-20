@@ -16,7 +16,7 @@
         <table>
             <c:forEach items="${providerList}" var="provider">
                 <tr>
-                    <td><c:out value="${provider.name}" /></td>
+                    <td><a href="/account/list?providerId=${provider.id}"><c:out value="${provider.name}" /></a></td>
                     <td><a href="javascript:deleteProvider(${provider.id})">delete</a></td>
                 </tr>
             </c:forEach>
